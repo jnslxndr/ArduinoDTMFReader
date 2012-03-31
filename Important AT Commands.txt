@@ -1,0 +1,10 @@
+AT Coammnds for Staalplaat DTMF Thingy...
+ Use with SIMCOM 900 module
+
+
+# Loudspeakerlevel 0 to 100
+AT+CLVL=100
+
+# Test DTMF
+AT+CLDTMF=2,"0"
+AT+CLDTMF=2,"0,1,2,3,4,5,6,7,8,9,*,#"
