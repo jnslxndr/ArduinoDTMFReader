@@ -3,6 +3,8 @@
  */
 #include <avr/pgmspace.h>
 
+// #define DEBUG 0
+
 // Store the DTMF key table in Flash memory
 PROGMEM  prog_uchar dtmf_keys[]  = { 
   'D','1','2','3','4','5','6','7','8','9','0','*','#','A','B','C'
