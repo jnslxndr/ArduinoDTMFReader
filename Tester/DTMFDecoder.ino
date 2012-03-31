@@ -24,13 +24,16 @@ void prepare_dtmf_reader() {
 
 // Interrupt Callback function
 void read_dtmf_on_detection(){
-  DTMF_CODE = parse_dtmf(); // parse directly from Port
+  dtmf_get_code(&DTMF_CODE); // parse directly from Port
 }
 
 // Decoding function
-char parse_dtmf() {
-  int _key_pos = PINC & B00001111; // we need 4 pins
-  return pgm_read_byte_near(dtmf_keys+_key_pos); // pick the char from the progmem
+void dtmf_get_code(volatile char *code) {
+  *code = dtmf_get_key_at_index(PINC & B00001111);
+}
+
+char dtmf_get_key_at_index(int index) {
+  return pgm_read_byte_near(dtmf_keys+index); // pick the char from the progmem
 }
 
 boolean dtmf_available(){
