@@ -11,7 +11,12 @@ PROGMEM  prog_uchar dtmf_keys[]  = {
 };
 
 const char NO_DTMF_AVAIL = -1;
+static int DTMF_USE_IRQ = true;
 volatile char DTMF_CODE = NO_DTMF_AVAIL;
+
+void set_dtmf_reader_to_use_interrupts(boolean yepnope) {
+  DTMF_USE_IRQ = yepnope;
+}
 
 void setup_dtmf_reader(){
   prepare_dtmf_reader();
