@@ -14,6 +14,7 @@ void setup()
   softSerial.begin(19200);               // the GPRS baud rate   
   Serial.begin(19200);                 // the GPRS baud rate   
   
+  set_dtmf_reader_to_use_interrupts(false);
   setup_dtmf_reader();
   
   // Test DTMF
@@ -26,6 +27,7 @@ void loop()
     Serial.print("DTMF: ");
     Serial.println(dtmf_read());
   }
+  
   if (softSerial.available())
     Serial.write(softSerial.read());
   if (Serial.available())
