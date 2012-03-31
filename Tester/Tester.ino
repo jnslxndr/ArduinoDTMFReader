@@ -15,6 +15,9 @@ void setup()
   Serial.begin(19200);                 // the GPRS baud rate   
   
   setup_dtmf_reader();
+  
+  // Test DTMF
+  // softSerial.println("AT+CLDTMF=1,\"1,2,3,4,5,6,7,8,9,0,\\*,#,A,B,C,D\"");
 }
 
 void loop()
