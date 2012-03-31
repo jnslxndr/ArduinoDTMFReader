@@ -10,11 +10,9 @@ PROGMEM  prog_uchar dtmf_keys[]  = {
 
 const char NO_DTMF_AVAIL = -1;
 volatile char DTMF_CODE = NO_DTMF_AVAIL;
-volatile uint8_t* DTMF_PORT = -1;
 
-void setup_dtmf_reader(PORT){
-  DTMF_PORT = PORT;
-  prepare_dtmf_reader(DTMF_PORT);
+void setup_dtmf_reader(){
+  prepare_dtmf_reader();
   // Attach the decoder to interrupt pin 3
   attachInterrupt(1,read_dtmf_on_detection,RISING);
 }
